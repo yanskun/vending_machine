@@ -7,7 +7,18 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "stylelint": "stylelint assets/styles/**/*.scss --syntax scss --fix"
+  },
+  "lint-staged": {
+    "*.{js,vue}": "yarn lint",
+    "*.{scss,css,vue}": "stylelint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "element-ui": "^2.13.2",
@@ -15,9 +26,26 @@
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.3",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^26.1.0",
-    "jest": "^26.1.0",
-    "vue-jest": "^3.0.4"
+    "@nuxtjs/eslint-config": "^2.0.0",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "@nuxtjs/stylelint-module": "^3.2.2",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.0.0",
+    "jest": "^24.1.0",
+    "lint-staged": "^10.0.0",
+    "node-sass": "^4.13.1",
+    "vue-jest": "^3.0.4",
+    "prettier": "^1.19.1",
+    "pug": "^2.0.4",
+    "pug-loader": "^2.4.0",
+    "pug-plain-loader": "^1.0.0",
+    "sass-loader": "^8.0.2",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^20.0.0"
   }
 }
