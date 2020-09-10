@@ -1,9 +1,16 @@
 <template lang="pug">
   .container
+    chassis
 </template>
 
 <script>
-export default {};
+import Chassis from "@/components/molecules/Chassis";
+
+export default {
+  components: {
+    Chassis
+  }
+};
 </script>
 
 <style>
