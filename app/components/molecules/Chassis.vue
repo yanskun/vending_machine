@@ -4,20 +4,19 @@
       tbody
         tr
           td(v-for="drink in drinkList")
-            bottle(v-if="drink.type === 'bottle'")
-            can(v-else="drink.type === 'can'")
+            drink(
+              :drink="drink"
+            )
 </template>
 
 <script>
-import Bottle from "../atoms/Bottle";
-import Can from "../atoms/Can";
+import Drink from "./Drink";
 
 import drink from "@/assets/mixins/drink";
 
 export default {
   components: {
-    Bottle,
-    Can
+    Drink
   },
 
   mixins: [drink],
