@@ -3,7 +3,7 @@
     table(border="1")
       tbody
         tr
-          td(v-for="drink in drinkList")
+          td(v-for="drink in drinkListData")
             drink(
               :drink="drink"
             )
