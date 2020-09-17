@@ -12,7 +12,7 @@
 export default {
   computed: {
     habingMoney() {
-      return this.$store.state.money.havingMoney;
+      return this.$store.state.wallet.havingMoney;
     }
   },
 
