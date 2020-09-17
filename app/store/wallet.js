@@ -3,7 +3,7 @@ export const state = () => ({
 });
 
 export const mutations = {
-  addMoney(state, payload) {
+  mutationAddMoney(state, payload) {
     state.havingMoney += payload;
   },
 };

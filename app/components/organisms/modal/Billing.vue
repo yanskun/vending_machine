@@ -5,7 +5,7 @@
     span 円
     span.dialog-footer(slot="footer")
       el-button(@click="closeModal") キャンセル
-      el-button(type="primary" @click="addCash") 追加
+      el-button(type="primary" @click="addMoney") 追加
 </template>
 
 <script>
@@ -28,14 +28,14 @@ export default {
 
   methods: {
     ...mapMutations({
-      addMoney: "wallet/addMoney"
+      mutationAddMoney: "wallet/mutationAddMoney"
     }),
     closeModal() {
       this.$emit("close-modal");
     },
 
-    addCash() {
-      this.addMoney(this.num);
+    addMoney() {
+      this.mutationAddMoney(this.num);
       this.closeModal();
     }
   }
