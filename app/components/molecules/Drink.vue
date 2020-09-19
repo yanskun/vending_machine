@@ -6,11 +6,13 @@
       img(:src="img[drink.container]")
     .drink-title
       | {{ drink.name }}
-    el-button(round @click="onClick")
+    el-button(round @click="onClick" :disabled="disable")
       | {{ drink.amount }}円
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 import canImg from "@/assets/images/can.png";
 import bottleImg from "@/assets/images/bottle.png";
 
@@ -31,9 +33,19 @@ export default {
     };
   },
 
+  computed: {
+    disable() {
+      return this.$store.state.wallet.havingMoney < this.drink.amount;
+    }
+  },
+
   methods: {
+    ...mapMutations({
+      mutationPurchase: "wallet/mutationPurchase"
+    }),
+
     onClick() {
-      window.alert("お金が入っていません");
+      this.mutationPurchase(this.drink.amount);
     }
   }
 };

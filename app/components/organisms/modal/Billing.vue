@@ -1,6 +1,6 @@
 <template lang="pug">
-  el-dialog(title="Tips" :visible.sync="modalShow" width="30%" :before-close="closeModal")
-    span いくら追加しますか？
+  el-dialog(:visible.sync="modalShow" width="30%" :before-close="closeModal")
+    span いくら入れますか？
     el-input-number(v-model="num" :step="10" :min="0" :max="10000" label="hoge")
     span 円
     span.dialog-footer(slot="footer")
