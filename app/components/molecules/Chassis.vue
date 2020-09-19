@@ -4,19 +4,19 @@
       tbody
         tr
           td(v-for="drink in drinkListData")
-            drink(
+            product(
               :drink="drink"
             )
 </template>
 
 <script>
-import Drink from "./Drink";
+import Product from "./Product";
 
 import drink from "@/assets/mixins/drink";
 
 export default {
   components: {
-    Drink
+    Product
   },
 
   mixins: [drink],
