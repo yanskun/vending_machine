@@ -1,9 +1,7 @@
 <template lang="pug">
   .cart
-    drink(
-      v-for="drink in drinkList"
-      :drink="drink"
-    )
+    .cart-drink(v-for="drink in drinkList" @click="onClick(drink)")
+      drink(:drink="drink")
 </template>
 
 <script>
@@ -22,7 +20,13 @@ export default {
 
   computed: {
     drinkList() {
-      return this.$store.state.cart.drinkList;
+      return this.$store.state.drink.drinkList;
+    }
+  },
+
+  methods: {
+    onClick(drink) {
+      window.alert(drink.name + "を飲みますか？");
     }
   }
 };

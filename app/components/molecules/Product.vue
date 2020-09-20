@@ -24,14 +24,14 @@ export default {
 
   computed: {
     disable() {
-      return this.$store.state.wallet.havingMoney < this.drink.amount;
+      return this.$store.state.drink.havingMoney < this.drink.amount;
     }
   },
 
   methods: {
     ...mapMutations({
-      mutationPurchase: "wallet/mutationPurchase",
-      addDrinkInCart: "cart/addDrinkInCart"
+      mutationPurchase: "drink/purchase",
+      addDrinkInCart: "drink/addDrinkInCart"
     }),
 
     onClick() {

@@ -29,7 +29,7 @@ export default {
 
   methods: {
     ...mapMutations({
-      mutationAddMoney: "wallet/mutationAddMoney"
+      mutationAddMoney: "drink/addMoney"
     }),
 
     closeModal() {
