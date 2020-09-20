@@ -1,16 +1,16 @@
 export const state = () => ({
   PurchasedDrinks: [],
   havingMoney: 0,
-  drinkStock: [
-    { container: "bottle", name: "コーラ", type: "cool", amount: 150, stock: 10 },
+  stocks: [
+    { container: "bottle", name: "コーラ", type: "cool", amount: 150, stock: 2 },
     {
       container: "can",
       name: "オレンジジュース",
       type: "cool",
       amount: 120,
-      stock: 10,
+      stock: 0,
     },
-    { container: "can", name: "コーヒー", type: "hot", amount: 110, stock: 10 },
+    { container: "can", name: "コーヒー", type: "hot", amount: 110, stock: 1 },
   ],
 });
 
@@ -52,9 +52,13 @@ export const mutations = {
    * 商品を購入する
    *
    * @param {object} state ステート
-   * @param {number} payload 出金額
+   * @param {object} payload 購入する飲み物
    */
   purchase(state, payload) {
-    state.havingMoney -= payload;
+    state.havingMoney -= payload.amount;
+    const targetDrink = state.stocks.find((drink) =>
+      drink.name === payload.name
+    );
+    targetDrink.stock--;
   },
 };

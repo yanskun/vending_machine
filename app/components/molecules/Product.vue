@@ -1,8 +1,10 @@
 <template lang="pug">
   .product(:class="drink.container")
     drink(:drink="drink")
-    el-button(round @click="onClick" :disabled="disable")
+    el-button(v-if="inStock" round @click="onClick" :disabled="littleMoney")
       | {{ drink.amount }}円
+    el-button(v-else round disabled type="danger" style="font-size: 1.2vh")
+      | 品切れ
 </template>
 
 <script>
@@ -23,8 +25,12 @@ export default {
   },
 
   computed: {
-    disable() {
+    littleMoney() {
       return this.$store.state.drink.havingMoney < this.drink.amount;
+    },
+
+    inStock() {
+      return this.drink.stock > 0;
     }
   },
 
@@ -35,7 +41,7 @@ export default {
     }),
 
     onClick() {
-      this.mutationPurchase(this.drink.amount);
+      this.mutationPurchase(this.drink);
       this.addDrinkInCart(this.drink);
     }
   }

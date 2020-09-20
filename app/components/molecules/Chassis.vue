@@ -27,8 +27,10 @@ export default {
     };
   },
 
-  mounted() {
-    this.drinkList = this.drinkListData;
+  computed: {
+    drinkListData() {
+      return this.$store.state.drink.stocks;
+    }
   }
 };
 </script>
