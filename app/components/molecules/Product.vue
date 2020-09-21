@@ -5,6 +5,11 @@
       | {{ drink.amount }}円
     el-button(v-else round disabled type="danger" style="font-size: 1.2vh")
       | 品切れ
+
+    el-tag(v-if="isCool" effect="light")
+      | つめた〜い
+    el-tag(v-else effect="light" type="danger")
+      | あったか〜い
 </template>
 
 <script>
@@ -31,6 +36,10 @@ export default {
 
     inStock() {
       return this.drink.stock > 0;
+    },
+
+    isCool() {
+      return this.drink.type === "cool";
     }
   },
 
@@ -51,5 +60,8 @@ export default {
 <style lang="scss" scoped>
 .product {
   width: 7vw;
+  .el-tag {
+    margin-top: 0.5vh;
+  }
 }
 </style>
