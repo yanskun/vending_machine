@@ -2,7 +2,7 @@
   el-dialog(:visible.sync="modalShow" width="30%" :before-close="closeModal")
     span いくら入れますか？
     br
-    el-input-number(v-model="num" :step="100" :min="100" :max="10000" label="hoge")
+    el-input-number(v-model="num" :step="100" :min="100" :max="10000")
     span 円
     span.dialog-footer(slot="footer")
       el-button(@click="closeModal") キャンセル

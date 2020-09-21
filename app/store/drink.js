@@ -68,4 +68,8 @@ export const mutations = {
     );
     targetDrink.stock += payload.count;
   },
+
+  addProduct(state, payload) {
+    state.stocks.push(payload);
+  },
 };

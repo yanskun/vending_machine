@@ -12,8 +12,9 @@
               @click='addStock(scope.$index)'
               type="info"
               size='small'
-            ) 追加
+            ) 在庫追加
 
+      el-button(@click="addProduct" type="success") 商品を追加
       el-button(@click="closeModal") 閉じる
 </template>
 
@@ -33,6 +34,14 @@ export default {
     return {
       values: {}
     };
+  },
+
+  watch: {
+    "tableData.length": {
+      handler() {
+        this.onOpen();
+      }
+    }
   },
 
   computed: {
@@ -63,6 +72,10 @@ export default {
       this.tableData.forEach((data, index) => {
         this.values[index] = 1;
       });
+    },
+
+    addProduct() {
+      this.$emit("add-product");
     }
   }
 };

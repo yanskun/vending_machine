@@ -21,6 +21,12 @@
       admin-modal(
         :modal-show="adminShow"
         @close-modal="closeAdminModal"
+        @add-product="addProduct"
+      )
+
+      product-modal(
+        :modal-show="productShow"
+        @close-modal="closeProductModal"
       )
 </template>
 
@@ -30,6 +36,7 @@ import Cart from "@/components/molecules/Cart";
 import Wallet from "@/components/molecules/Wallet";
 import AdminModal from "@/components/organisms/modal/Admin";
 import BillingModal from "@/components/organisms/modal/Billing";
+import ProductModal from "@/components/organisms/modal/Product";
 
 export default {
   components: {
@@ -37,13 +44,15 @@ export default {
     Cart,
     Wallet,
     AdminModal,
-    BillingModal
+    BillingModal,
+    ProductModal
   },
 
   data() {
     return {
       billingShow: false,
-      adminShow: false
+      adminShow: false,
+      productShow: false
     };
   },
 
@@ -62,6 +71,14 @@ export default {
 
     closeAdminModal() {
       this.adminShow = false;
+    },
+
+    addProduct() {
+      this.productShow = true;
+    },
+
+    closeProductModal() {
+      this.productShow = false;
     }
   }
 };
