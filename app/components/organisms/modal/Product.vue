@@ -79,7 +79,6 @@ export default {
     },
 
     addProduct() {
-      debugger;
       this.mutationAddProduct(this.data);
       this.closeModal();
     }
