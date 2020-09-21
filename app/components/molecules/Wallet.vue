@@ -1,6 +1,6 @@
 <template lang="pug">
   .wallet
-    span 今入っている額
+    span 今入っているお金
     .the-money
       i.el-icon-wallet
       span {{ havingMoney }}円
@@ -23,9 +23,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.wallet {
-  display: flex;
-}
-</style>
