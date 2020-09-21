@@ -1,23 +1,34 @@
 <template lang="pug">
-  .container
-    chassis
+  el-container
+    el-header
+      span 自動販売機
+      el-button(type="info" @click="adminClick") 管理
 
-    wallet(
-      @add-money="addMoney"
-    )
+    .container
+      chassis
 
-    cart
+      wallet(
+        @add-money="addMoney"
+      )
 
-    billing-modal(
-      :modal-show="billingShow"
-      @close-modal="closeModal"
-    )
+      cart
+
+      billing-modal(
+        :modal-show="billingShow"
+        @close-modal="closeBillingModal"
+      )
+
+      admin-modal(
+        :modal-show="adminShow"
+        @close-modal="closeAdminModal"
+      )
 </template>
 
 <script>
 import Chassis from "@/components/molecules/Chassis";
 import Cart from "@/components/molecules/Cart";
 import Wallet from "@/components/molecules/Wallet";
+import AdminModal from "@/components/organisms/modal/Admin";
 import BillingModal from "@/components/organisms/modal/Billing";
 
 export default {
@@ -25,26 +36,32 @@ export default {
     Chassis,
     Cart,
     Wallet,
+    AdminModal,
     BillingModal
   },
 
   data() {
     return {
-      billingShow: false
+      billingShow: false,
+      adminShow: false
     };
   },
 
   methods: {
     addMoney() {
-      this.$emit("add-money");
-    },
-
-    addMoney() {
       this.billingShow = true;
     },
 
-    closeModal() {
+    closeBillingModal() {
       this.billingShow = false;
+    },
+
+    adminClick() {
+      this.adminShow = true;
+    },
+
+    closeAdminModal() {
+      this.adminShow = false;
     }
   }
 };

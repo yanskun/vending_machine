@@ -12,19 +12,9 @@
 <script>
 import Product from "./Product";
 
-import drink from "@/assets/mixins/drink";
-
 export default {
   components: {
     Product
-  },
-
-  mixins: [drink],
-
-  data() {
-    return {
-      drinkList: []
-    };
   },
 
   computed: {

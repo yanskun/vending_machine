@@ -1,20 +1,15 @@
 <template lang="pug">
-  el-container
-    Header
-    nuxt(
-      @add-money="addMoney"
-    )
-    Footer
+  nuxt
 </template>
 
-<script>
-import Header from "@/components/organisms/Header";
-import Footer from "@/components/organisms/Footer";
-
-export default {
-  components: {
-    Header,
-    Footer
+<style lang="scss" scoped>
+.el-container {
+  text-align: center;
+  .el-header {
+    background-color: #409eff;
+    span {
+      font-size: xx-large;
+    }
   }
-};
-</script>
+}
+</style>

@@ -61,4 +61,11 @@ export const mutations = {
     );
     targetDrink.stock--;
   },
+
+  addStock(state, payload) {
+    const targetDrink = state.stocks.find((drink) =>
+      drink.name === payload.name
+    );
+    targetDrink.stock += payload.count;
+  },
 };
